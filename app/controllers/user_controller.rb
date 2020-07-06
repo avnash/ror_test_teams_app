@@ -27,8 +27,8 @@ class UserController < ApplicationController
     render json: @user, status: :ok
   end
 
-  def teams  # TODO: update this to include teams data
-    @memberships = Membership.where(user: params[:id])
-    render json: @memberships, status: :ok
+  def teams
+    @user = User.find(params[:id])
+    render json: @user.teams, status: :ok
   end
 end
